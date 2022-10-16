@@ -18,30 +18,21 @@ class HotJarStream(RESTStream):
     """HotJar stream class."""
 
     url_base = "https://insights.hotjar.com/api"
-
+    auth_url = "https://insights.hotjar.com/api/v2/users"
 
     records_jsonpath = "$[*]"  # Or override `parse_response`.
     next_page_token_jsonpath = "$.next_page"  # Or override `get_next_page_token`.
 
     @property
     def authenticator(self) -> APIKeyAuthenticator:
-        """Return a new authenticator object."""
-        return APIKeyAuthenticator.create_for_stream(
-            self,
-            key="x-api-key",
-            value=self.config.get("api_key"),
-            location="header"
-        )
-
-    @property
-    def http_headers(self) -> dict:
-        """Return the http headers needed."""
-        headers = {}
-        if "user_agent" in self.config:
-            headers["User-Agent"] = self.config.get("user_agent")
-        # If not using an authenticator, you may also provide inline auth headers:
-        # headers["Private-Token"] = self.config.get("auth_token")
-        return headers
+        credentials = {
+            "action": "login",
+            "email": self.config.get("email"),
+            "password": self.config.get("password"),
+            "remember": False,
+        }
+        self._requests_session.post(self.auth_url, json=credentials)
+        return
 
     def get_next_page_token(
         self, response: requests.Response, previous_token: Optional[Any]
@@ -80,7 +71,6 @@ class HotJarStream(RESTStream):
 
         By default, no payload will be sent (return None).
         """
-        # TODO: Delete this method if no payload is required. (Most REST APIs.)
         return None
 
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
