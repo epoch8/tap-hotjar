@@ -1,24 +1,52 @@
 """Stream type classes for tap-hotjar."""
-
+import requests
+import io
+import zipfile
+import pandas as pd
+import json
 from pathlib import Path
 from typing import Any, Dict, Optional, Union, List, Iterable
+from singer_sdk.helpers.jsonpath import extract_jsonpath
 
 from singer_sdk import typing as th  # JSON Schema typing helpers
 
 from tap_hotjar.client import HotJarStream
 
-# TODO: Delete this is if not using json files for schema definition
-SCHEMAS_DIR = Path(__file__).parent / Path("./schemas")
-# TODO: - Override `UsersStream` and `GroupsStream` with your own stream definition.
-#       - Copy-paste as many times as needed to create multiple stream types.
+class HotJarApiError(Exception):
+    ...
 
-
-
-class GroupsStream(HotJarStream):
+class SurveysStream(HotJarStream):
     """Define custom stream."""
-    name = "groups"
-    path = "/v2/users/me"
+    name = "surveys"
+    path = "/v3/sites/3046251/polls/838209/responses/export?survey_query=%7B%22sort_by%22:%22-index%22,%22clauses%22:[]%7D&format=csv&async_export=false"
     schema = th.PropertiesList(
-        th.Property("access_key", th.StringType),
-        th.Property("user_id", th.StringType),
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+        th.Property("Bonjour, êtes-vous :", th.StringType),
+        th.Property("Votre visite concerne :", th.StringType),
+        th.Property("Que cherchez vous sur le site : ", th.StringType),
+        th.Property("Êtes-vous satisfaits de votre visite : ", th.StringType),
     ).to_dict()
+
+
+    def parse_response(self, response: requests.Response) -> Iterable[dict]:
+        """Parse the response and return an iterator of result records."""
+        zip_download_url = response.json().get("download_url")
+        if not zip_download_url:
+            raise HotJarApiError()
+        surveys_zip_bin = requests.get(zip_download_url).content
+        with zipfile.ZipFile(io.BytesIO(surveys_zip_bin)) as thezip:
+            for zipinfo in thezip.infolist():
+                with thezip.open(zipinfo) as thefile:
+                    csv = io.StringIO(thefile.read().decode("utf-8"))
+        df = pd.read_csv(csv)
+        data_str = df.to_json(None, orient='records')
+        data = json.loads(data_str)
+        yield from data

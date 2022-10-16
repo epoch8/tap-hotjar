@@ -7,12 +7,12 @@ from singer_sdk import typing as th  # JSON schema typing helpers
 # TODO: Import your custom stream types here:
 from tap_hotjar.streams import (
     HotJarStream,
-    GroupsStream,
+    SurveysStream,
 )
 # TODO: Compile a list of custom stream types here
 #       OR rewrite discover_streams() below with your custom logic.
 STREAM_TYPES = [
-    GroupsStream,
+    SurveysStream,
 ]
 
 
