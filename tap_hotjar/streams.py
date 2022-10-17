@@ -4,10 +4,10 @@ import io
 import zipfile
 import pandas as pd
 import json
+from unidecode import unidecode as _
 from pathlib import Path
 from typing import Any, Dict, Optional, Union, List, Iterable
 from singer_sdk.helpers.jsonpath import extract_jsonpath
-
 from singer_sdk import typing as th  # JSON Schema typing helpers
 
 from tap_hotjar.client import HotJarStream
@@ -29,10 +29,10 @@ class SurveysStream(HotJarStream):
         th.Property("Browser", th.StringType),
         th.Property("OS", th.StringType),
         th.Property("Hotjar User ID", th.StringType),
-        th.Property("Bonjour, êtes-vous :", th.StringType),
-        th.Property("Votre visite concerne :", th.StringType),
-        th.Property("Que cherchez vous sur le site : ", th.StringType),
-        th.Property("Êtes-vous satisfaits de votre visite : ", th.StringType),
+        th.Property(_("Bonjour, êtes-vous :"), th.StringType),
+        th.Property(_("Votre visite concerne :"), th.StringType),
+        th.Property(_("Que cherchez vous sur le site : "), th.StringType),
+        th.Property(_("Êtes-vous satisfaits de votre visite : "), th.StringType),
     ).to_dict()
 
 
@@ -47,6 +47,14 @@ class SurveysStream(HotJarStream):
                 with thezip.open(zipinfo) as thefile:
                     csv = io.StringIO(thefile.read().decode("utf-8"))
         df = pd.read_csv(csv)
+        french_unicode_mappings = {column:_(column) for column in df.columns}
+        df = df.rename(columns=french_unicode_mappings)
         data_str = df.to_json(None, orient='records')
         data = json.loads(data_str)
         yield from data
+
+    def post_process(self, row: dict, context: Optional[dict] = None) -> Optional[dict]:
+        for key in row:
+            if isinstance(row[key], str):
+                row[key] = _(row[key])
+        return row
