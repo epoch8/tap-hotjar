@@ -18,7 +18,7 @@ class HotJarApiError(Exception):
 class SurveysStream(HotJarStream):
     """Define custom stream."""
     name = "surveys"
-    path = "/v3/sites/3046251/polls/838209/responses/export?survey_query=%7B%22sort_by%22:%22-index%22,%22clauses%22:[]%7D&format=csv&async_export=false"
+    path = "/v3/sites/2975966/polls/810747/responses/export?survey_query=%7B%22sort_by%22:%22-index%22,%22clauses%22:[]%7D&format=csv&async_export=false"
     schema = th.PropertiesList(
         th.Property("Number", th.IntegerType),
         th.Property("User", th.StringType),
