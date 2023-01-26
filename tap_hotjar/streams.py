@@ -47,8 +47,8 @@ class SurveysStream(HotJarStream):
                 with thezip.open(zipinfo) as thefile:
                     csv = io.StringIO(thefile.read().decode("utf-8"))
         df = pd.read_csv(csv)
-        french_unicode_mappings = {column:_(column) for column in df.columns}
-        df = df.rename(columns=french_unicode_mappings)
+        unicode_mappings = {column:_(column) for column in df.columns}
+        df = df.rename(columns=unicode_mappings)
         data_str = df.to_json(None, orient='records')
         data = json.loads(data_str)
         yield from data
@@ -58,3 +58,58 @@ class SurveysStream(HotJarStream):
             if isinstance(row[key], str):
                 row[key] = _(row[key])
         return row
+
+
+class B2BTrStream(SurveysStream):
+    name = "survey_b2b_tr"
+    path = "/v3/sites/3046251/polls/868818/responses/export?survey_query=%7B%22sort_by%22:%22-index%22,%22clauses%22:[%7B%22type%22:%22date_relative%22,%22unit%22:%22months%22,%22value%22:3%7D]%7D&format=csv&async_export=false"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+        th.Property(_("B2B Portalını ne kadar tavsiye edersiniz?"), th.StringType),
+        th.Property(_("Bu puanınınız nedenini kısaca yazar mısınız?"), th.StringType),
+        th.Property(_("Sizi şaşırmak için B2B'de ne yapmalıyız?"), th.StringType),
+    ).to_dict()
+
+class B2BUsStream(SurveysStream):
+    name = "survey_b2b_us"
+    path = "/v3/sites/3046251/polls/868826/responses/export?survey_query=%7B%22sort_by%22:%22-index%22,%22clauses%22:[%7B%22type%22:%22date_relative%22,%22unit%22:%22months%22,%22value%22:3%7D]%7D&format=csv&async_export=false"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+        th.Property(_("How likely are you to recommend this portal to someone like you ?"), th.StringType),
+        th.Property(_("What is the reason for your score?"), th.StringType),
+        th.Property(_("What should we do to WOW you?"), th.StringType),
+    ).to_dict()
+
+class B2BMexStream(SurveysStream):
+    name = "survey_b2b_mex"
+    path = "/v3/sites/3046251/polls/838209/responses/export?survey_query=%7B%22sort_by%22:%22-index%22,%22clauses%22:[%7B%22type%22:%22date_relative%22,%22unit%22:%22months%22,%22value%22:3%7D]%7D&format=csv&async_export=false"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+        th.Property(_("¿Qué probabilidad hay de que recomiende este portal a alguien como usted?"), th.StringType),
+        th.Property(_("¿Cuál es la razón de su puntuación?"), th.StringType),
+        th.Property(_("¿Qué debemos hacer para que te sorprendas?"), th.StringType),
+    ).to_dict()
