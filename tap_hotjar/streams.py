@@ -62,7 +62,7 @@ class SurveysStream(HotJarStream):
 
 class B2BTrStream(SurveysStream):
     name = "survey_b2b_tr"
-    path = "/v3/sites/3046251/polls/868818/responses/export?survey_query=%7B%22sort_by%22:%22-index%22,%22clauses%22:[%7B%22type%22:%22date_relative%22,%22unit%22:%22months%22,%22value%22:3%7D]%7D&format=csv&async_export=false"
+    path = "/v3/sites/3046251/polls/868818/responses/export?survey_query=%7B%22sort_by%22:%22-index%22,%22clauses%22:[]%7D&format=csv&async_export=false"
     schema = th.PropertiesList(
         th.Property("Number", th.IntegerType),
         th.Property("User", th.StringType),
@@ -80,7 +80,7 @@ class B2BTrStream(SurveysStream):
 
 class B2BUsStream(SurveysStream):
     name = "survey_b2b_us"
-    path = "/v3/sites/3046251/polls/868826/responses/export?survey_query=%7B%22sort_by%22:%22-index%22,%22clauses%22:[%7B%22type%22:%22date_relative%22,%22unit%22:%22months%22,%22value%22:3%7D]%7D&format=csv&async_export=false"
+    path = "/v3/sites/3046251/polls/868826/responses/export?survey_query=%7B%22sort_by%22:%22-index%22,%22clauses%22:[]%7D&format=csv&async_export=false"
     schema = th.PropertiesList(
         th.Property("Number", th.IntegerType),
         th.Property("User", th.StringType),
@@ -98,7 +98,7 @@ class B2BUsStream(SurveysStream):
 
 class B2BMexStream(SurveysStream):
     name = "survey_b2b_mex"
-    path = "/v3/sites/3046251/polls/838209/responses/export?survey_query=%7B%22sort_by%22:%22-index%22,%22clauses%22:[%7B%22type%22:%22date_relative%22,%22unit%22:%22months%22,%22value%22:3%7D]%7D&format=csv&async_export=false"
+    path = "/v3/sites/3046251/polls/838209/responses/export?survey_query=%7B%22sort_by%22:%22-index%22,%22clauses%22:[]%7D&format=csv&async_export=false"
     schema = th.PropertiesList(
         th.Property("Number", th.IntegerType),
         th.Property("User", th.StringType),
