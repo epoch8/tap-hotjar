@@ -10,7 +10,16 @@ from tap_hotjar.streams import (
     SurveysStream,
     B2BUsStream,
     B2BTrStream,
-    B2BMexStream
+    B2BMexStream,
+    B2BCentralAmericaStream,
+    B2BIbericaStream,
+    B2BFranceExportStream,
+    B2BFranceStream,
+    B2BGermanExportStream,
+    B2BBrasilStream,
+    B2BRussiaStream,
+    B2BItalyStream,
+    B2BGermanStream
 )
 # TODO: Compile a list of custom stream types here
 #       OR rewrite discover_streams() below with your custom logic.
@@ -18,7 +27,16 @@ STREAM_TYPES = [
     SurveysStream,
     B2BUsStream,
     B2BTrStream,
-    B2BMexStream
+    B2BMexStream,
+    B2BCentralAmericaStream,
+    B2BIbericaStream,
+    B2BFranceExportStream,
+    B2BFranceStream,
+    B2BGermanExportStream,
+    B2BBrasilStream,
+    B2BRussiaStream,
+    B2BItalyStream,
+    B2BGermanStream
 ]
 
 
