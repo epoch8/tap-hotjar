@@ -137,9 +137,9 @@ class B2BMexStream(SurveysStream):
         th.Property("Browser", th.StringType),
         th.Property("OS", th.StringType),
         th.Property("Hotjar User ID", th.StringType),
-        th.Property(_("¿Qué tan probable es que recomiende este portal a otras personas?"), th.StringType),
+        th.Property(_("¿Qué probabilidad hay de que recomiende este portal a alguien como usted?"), th.StringType),
         th.Property(_("¿Cuál es la razón de su puntuación?"), th.StringType),
-        th.Property(_("¿Qué debemos hacer para mejorar su experiencia en la plataforma?"), th.StringType),
+        th.Property(_("¿Qué debemos hacer para que te sorprendas?"), th.StringType),
     ).to_dict()
 
 class B2BIbericaStream(SurveysStream):
