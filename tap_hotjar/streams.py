@@ -414,8 +414,8 @@ class ShopFR(SurveysStream):
 
 class RentEN(SurveysStream):
     name = "survey_rent_en"
-    site_id = "3387435"
-    survey_id = "887066"
+    site_id = "3387427"
+    survey_id = "896529"
     schema = th.PropertiesList(
         th.Property("Number", th.IntegerType),
         th.Property("User", th.StringType),
