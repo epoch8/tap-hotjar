@@ -377,7 +377,7 @@ class B2CRideFR(SurveysStream):
     ).to_dict()
 
 class ShopEN(SurveysStream):
-    name = "survey_shop_en"
+    name = "survey_b2c_shop_en"
     site_id = "3387435"
     survey_id = "887070"
     schema = th.PropertiesList(
@@ -395,7 +395,7 @@ class ShopEN(SurveysStream):
     ).to_dict()
 
 class ShopFR(SurveysStream):
-    name = "survey_shop_fr"
+    name = "survey_b2c_shop_fr"
     site_id = "3387435"
     survey_id = "887066"
     schema = th.PropertiesList(
@@ -413,7 +413,7 @@ class ShopFR(SurveysStream):
     ).to_dict()
 
 class RentEN(SurveysStream):
-    name = "survey_rent_en"
+    name = "survey_b2c_rent_en"
     site_id = "3387427"
     survey_id = "896529"
     schema = th.PropertiesList(
