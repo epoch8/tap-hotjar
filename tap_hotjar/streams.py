@@ -41,7 +41,7 @@ class SurveysStream(HotJarStream):
 
     @property
     def path(self): 
-        return f"/v3/sites/{self.site_id}/polls/{self.survey_id}/responses/export?survey_query=%7B%22sort_by%22:%22-index%22,%22clauses%22:[]%7D&format=csv&async_export=false"
+        return f"/ask/v3/sites/{self.site_id}/polls/{self.survey_id}/responses/export?survey_query=%7B%22sort_by%22:%22-index%22,%22clauses%22:[]%7D&format=csv&async_export=false"
 
 
     def parse_response(self, response: requests.Response) -> Iterable[dict]:

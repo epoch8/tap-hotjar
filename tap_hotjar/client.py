@@ -32,6 +32,7 @@ class HotJarStream(RESTStream):
             "remember": False,
         }
         self._requests_session.post(self.auth_url, json=credentials)
+        self._http_headers.update({"X-Acc": self._requests_session.cookies['ACC']})
         return
 
     def get_next_page_token(
