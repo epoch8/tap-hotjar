@@ -605,7 +605,7 @@ class B2CProd_USA_NPS(SurveysStream):
 
 
 class B2C_PROD_en_GB_NPS(SurveysStream):
-    name = "survey_b2c_prod_en_gb_np"
+    name = "survey_b2c_prod_en_gb_nps"
     site_id = "3356229"
     survey_id = "960940"
     schema = th.PropertiesList(
