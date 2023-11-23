@@ -1,6 +1,7 @@
 version: 1
 send_anonymous_usage_stats: true
 project_id: "tap-hotjar"
+default_environment: dev
 plugins:
   extractors:
   - name: "tap-hotjar"
@@ -14,12 +15,13 @@ plugins:
       start_date: '2010-01-01T00:00:00Z'
     settings:
     # TODO: To configure using Meltano, declare settings and their types here:
-    - name: username
+    - name: email
     - name: password
       kind: password
-    - name: start_date
-      value: '2010-01-01T00:00:00Z'
   loaders:
   - name: target-jsonl
     variant: andyh1203
     pip_url: target-jsonl
+
+environments:
+- name: dev

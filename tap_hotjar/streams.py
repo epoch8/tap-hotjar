@@ -12,11 +12,14 @@ from singer_sdk import typing as th  # JSON Schema typing helpers
 
 from tap_hotjar.client import HotJarStream
 
+
 class HotJarApiError(Exception):
     ...
 
+
 def clean(text: str) -> str:
     return unidecode(text).strip()
+
 
 class SurveysStream(HotJarStream):
     """Define custom stream."""
@@ -42,7 +45,6 @@ class SurveysStream(HotJarStream):
     @property
     def path(self): 
         return f"/ask/v3/sites/{self.site_id}/polls/{self.survey_id}/responses/export?survey_query=%7B%22sort_by%22:%22-index%22,%22clauses%22:[]%7D&format=csv&async_export=false"
-
 
     def parse_response(self, response: requests.Response) -> Iterable[dict]:
         """Parse the response and return an iterator of result records."""
@@ -87,6 +89,7 @@ class B2BTrStream(SurveysStream):
         th.Property(clean("Sizi şaşırmak için B2B'de ne yapmalıyız?"), th.StringType),
     ).to_dict()
 
+
 class B2BUsStream(SurveysStream):
     name = "survey_b2b_us"
     site_id = "3046251"
@@ -105,6 +108,7 @@ class B2BUsStream(SurveysStream):
         th.Property(clean("What is the reason for your score?"), th.StringType),
         th.Property(clean("What should we do to WOW you?"), th.StringType),
     ).to_dict()
+
 
 class B2BCentralAmericaStream(SurveysStream):
     name = "survey_b2b_central_america"
@@ -145,6 +149,7 @@ class B2BMexStream(SurveysStream):
         th.Property(clean("¿Qué debemos hacer para que te sorprendas?"), th.StringType),
     ).to_dict()
 
+
 class B2BIbericaStream(SurveysStream):
     name = "survey_b2b_iberica"
     site_id = "3046251"
@@ -163,6 +168,7 @@ class B2BIbericaStream(SurveysStream):
         th.Property(clean("¿Cuál es la razón de su puntuación?"), th.StringType),
         th.Property(clean("¿Qué debemos hacer para que le sorprenda?"), th.StringType),
     ).to_dict()
+
 
 class B2BFranceExportStream(SurveysStream):
     name = "survey_b2b_france_export"
@@ -183,6 +189,7 @@ class B2BFranceExportStream(SurveysStream):
         th.Property(clean("Que pouvons-nous faire pour l'améliorer"), th.StringType),
     ).to_dict()
 
+
 class B2BFranceStream(SurveysStream):
     name = "survey_b2b_france"
     site_id = "3046251"
@@ -201,6 +208,7 @@ class B2BFranceStream(SurveysStream):
         th.Property(clean("Quelle est la raison de votre score ?"), th.StringType),
         th.Property(clean("Que pouvons-nous faire pour l'améliorer"), th.StringType),
     ).to_dict()
+
 
 class B2BGermanExportStream(SurveysStream):
     name = "survey_b2b_german_export"
@@ -221,6 +229,7 @@ class B2BGermanExportStream(SurveysStream):
         th.Property(clean("Was sollten wir tun, um Sie zu begeistern?"), th.StringType),
     ).to_dict()
 
+
 class B2BBrasilStream(SurveysStream):
     name = "survey_b2b_brasil"
     site_id = "3046251"
@@ -239,6 +248,7 @@ class B2BBrasilStream(SurveysStream):
         th.Property(clean("Qual é a razão de sua pontuação?"), th.StringType),
         th.Property(clean("O que devemos fazer para COMO você?"), th.StringType),
     ).to_dict()
+
 
 class B2BRussiaStream(SurveysStream):
     name = "survey_b2b_russia"
@@ -339,6 +349,7 @@ class B2CProdEN(SurveysStream):
         th.Property(clean("Help us make your experience better! Are you professional or consumer?"), th.StringType),
     ).to_dict()
 
+
 class B2CProdES(SurveysStream):
     name = "survey_b2c_prod_es"
     site_id = "3356229"
@@ -377,6 +388,7 @@ class B2CRentFR(SurveysStream):
         th.Property(clean("Quelle est la raison de votre score ?"), th.StringType),
     ).to_dict()
 
+
 class B2CRideFR(SurveysStream):
     name = "survey_b2c_ride_fr"
     site_id = "3387423"
@@ -394,6 +406,7 @@ class B2CRideFR(SurveysStream):
         th.Property(clean("Aidez-nous à améliorer votre expérience ! Quelle est la probabilité que vous nous recommandiez à un ami ou à un collègue ?"), th.StringType),
         th.Property(clean("Quelle est la raison de votre score ?"), th.StringType),
     ).to_dict()
+
 
 class ShopEN(SurveysStream):
     name = "survey_b2c_shop_en"
@@ -413,6 +426,7 @@ class ShopEN(SurveysStream):
         th.Property(clean("What's the reason for your score?"), th.StringType),
     ).to_dict()
 
+
 class ShopFR(SurveysStream):
     name = "survey_b2c_shop_fr"
     site_id = "3387435"
@@ -430,6 +444,7 @@ class ShopFR(SurveysStream):
         th.Property(clean("Aidez-nous à améliorer votre expérience ! Quelle est la probabilité que vous nous recommandiez à un ami ou à un collègue ?"), th.StringType),
         th.Property(clean("Quelle est la raison de votre score ?"), th.StringType),
     ).to_dict()
+
 
 class RentEN(SurveysStream):
     name = "survey_b2c_rent_en"
@@ -449,6 +464,7 @@ class RentEN(SurveysStream):
         th.Property(clean("What's the reason for your score?"), th.StringType),
     ).to_dict()
 
+
 class ABO_NPC_DE(SurveysStream):
     name = "survey_abo_nps_de"
     site_id = "3581196"
@@ -466,6 +482,7 @@ class ABO_NPC_DE(SurveysStream):
         th.Property(clean("Wie wahrscheinlich ist es, dass Sie uns an einen Freund oder Kollegen weiterempfehlen?"), th.StringType),
         th.Property(clean("Was ist der Grund für Ihre Bewertung?"), th.StringType),
     ).to_dict()
+
 
 class B2CProd_FR_CA_NPS(SurveysStream):
     name = "survey_b2c_prod_fr_ca_nps"
@@ -486,6 +503,7 @@ class B2CProd_FR_CA_NPS(SurveysStream):
         th.Property(clean("Aidez-nous à améliorer votre expérience ! Etes-vous un professionnel ou un particulier ?"), th.StringType),
     ).to_dict()
 
+
 class B2CProd_EN_CA_NPS(SurveysStream):
     name = "survey_b2c_prod_en_ca_nps"
     site_id = "3356229"
@@ -504,6 +522,7 @@ class B2CProd_EN_CA_NPS(SurveysStream):
         th.Property(clean("What's the reason for your score?"), th.StringType),
         th.Property(clean("Help us make your experience better! Are you professional or consumer?"), th.StringType),
     ).to_dict()
+
 
 class B2CProd_IT_NPS(SurveysStream):
     name = "survey_b2c_prod_it_nps"
@@ -524,6 +543,7 @@ class B2CProd_IT_NPS(SurveysStream):
         th.Property(clean("Aiutaci a migliorare la tua esperienza! Sei un operatore del settore o un consumatore finale?"), th.StringType),
     ).to_dict()
 
+
 class B2CProd_DE_DE_NPS(SurveysStream):
     name = "survey_b2c_prod_de_de_nps"
     site_id = "3356229"
@@ -542,6 +562,7 @@ class B2CProd_DE_DE_NPS(SurveysStream):
         th.Property(clean("Was ist der Grund für Ihre Bewertung?"), th.StringType),
         th.Property(clean("Helfen Sie uns, unsere Inhalte zu verbessern! Sind Sie ein Händler oder ein Endverbraucher?"), th.StringType),
     ).to_dict()
+
 
 class B2CProd_EN_DE_NPS(SurveysStream):
     name = "survey_b2c_prod_en_de_nps"
@@ -562,6 +583,7 @@ class B2CProd_EN_DE_NPS(SurveysStream):
         th.Property(clean("Help us make your experience better! Are you professional or consumer?"), th.StringType),
     ).to_dict()
 
+
 class B2CProd_USA_NPS(SurveysStream):
     name = "survey_b2c_prod_usa_nps"
     site_id = "3356229"
@@ -579,4 +601,64 @@ class B2CProd_USA_NPS(SurveysStream):
         th.Property(clean("How likely are you to recommend us to a friend or colleague?"), th.StringType),
         th.Property(clean("What's the reason for your score?"), th.StringType),
         th.Property(clean("Help us make your experience better! Are you professional or consumer?"), th.StringType),
+    ).to_dict()
+
+
+class B2C_PROD_en_GB_NPS(SurveysStream):
+    name = "survey_b2c_prod_en_gb_np"
+    site_id = "3356229"
+    survey_id = "960940"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+        th.Property(clean("How likely are you to recommend us to a friend or colleague?"), th.IntegerType),
+        th.Property(clean("What's the reason for your score?"), th.StringType),
+        th.Property(clean("Help us make your experience better! Are you professional or consumer?"), th.StringType),
+    ).to_dict()
+
+
+class B2C_B2C_PROD_PL_NPS(SurveysStream):
+    name = "survey_b2c_prod_pl_nps"
+    site_id = "3356229"
+    survey_id = "954014"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+        th.Property(clean("Jak prawdopodobne jest, że polecisz nas znajomemu lub współpracownikowi?"), th.IntegerType),
+        th.Property(clean("Jaki jest powód Twojej oceny?"), th.StringType),
+        th.Property(clean("Pomóż nam ulepszyć Twoje doświadczenia! Jesteś profesjonalistą czy osobą prywatną?"), th.StringType),
+    ).to_dict()
+
+
+class B2C_B2C_PROD_PT_NPS(SurveysStream):
+    name = "survey_b2c_prod_pt_nps"
+    site_id = "3356229"
+    survey_id = "938790"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+        th.Property(clean("Qual a probabilidade de você nos recomendar a um amigo ou colega?"), th.IntegerType),
+        th.Property(clean("Qual é o motivo da sua pontuação?"), th.StringType),
+        th.Property(clean("Ajude-nos a tornar sua experiência melhor! Você é um profissional ou consumidor?"), th.StringType),
     ).to_dict()
