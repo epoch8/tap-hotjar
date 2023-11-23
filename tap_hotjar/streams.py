@@ -623,6 +623,24 @@ class B2C_PROD_en_GB_NPS(SurveysStream):
         th.Property(clean("Help us make your experience better! Are you professional or consumer?"), th.StringType),
     ).to_dict()
 
+    def post_process(self, row: dict, context: dict | None = None) -> dict | None:
+        row_processed = {}
+
+        row_processed["Number"] = row.get("Number")
+        row_processed["User"] = row.get("User")
+        row_processed["Date Submitted"] = row.get("Date Submitted")
+        row_processed["Country"] = row.get("Country")
+        row_processed["Source URL"] = row.get("Source URL")
+        row_processed["Device"] = row.get("Device")
+        row_processed["Browser"] = row.get("Browser")
+        row_processed["OS"] = row.get("OS")
+        row_processed["Hotjar User ID"] = row.get("Hotjar User ID")
+        row_processed[clean("How likely are you to recommend us to a friend or colleague?")] = row.get(clean("How likely are you to recommend us to a friend or colleague?"))
+        row_processed[clean("What's the reason for your score?")] = row.get(clean("What's the reason for your score?"))
+        row_processed[clean("Help us make your experience better! Are you professional or consumer?")] = row.get(clean("Help us make your experience better! Are you professional or consumer?"))
+
+        return row_processed
+
 
 class B2C_B2C_PROD_PL_NPS(SurveysStream):
     name = "survey_b2c_prod_pl_nps"
@@ -643,6 +661,24 @@ class B2C_B2C_PROD_PL_NPS(SurveysStream):
         th.Property(clean("Pomóż nam ulepszyć Twoje doświadczenia! Jesteś profesjonalistą czy osobą prywatną?"), th.StringType),
     ).to_dict()
 
+    def post_process(self, row: dict, context: dict | None = None) -> dict | None:
+        row_processed = {}
+
+        row_processed["Number"] = row.get("Number")
+        row_processed["User"] = row.get("User")
+        row_processed["Date Submitted"] = row.get("Date Submitted")
+        row_processed["Country"] = row.get("Country")
+        row_processed["Source URL"] = row.get("Source URL")
+        row_processed["Device"] = row.get("Device")
+        row_processed["Browser"] = row.get("Browser")
+        row_processed["OS"] = row.get("OS")
+        row_processed["Hotjar User ID"] = row.get("Hotjar User ID")
+        row_processed[clean("Jak prawdopodobne jest, że polecisz nas znajomemu lub współpracownikowi?")] = row.get(clean("Jak prawdopodobne jest, że polecisz nas znajomemu lub współpracownikowi?"))
+        row_processed[clean("Jaki jest powód Twojej oceny?")] = row.get(clean("Jaki jest powód Twojej oceny?"))
+        row_processed[clean("Pomóż nam ulepszyć Twoje doświadczenia! Jesteś profesjonalistą czy osobą prywatną?")] = row.get(clean("Pomóż nam ulepszyć Twoje doświadczenia! Jesteś profesjonalistą czy osobą prywatną?"))
+
+        return row_processed
+
 
 class B2C_B2C_PROD_PT_NPS(SurveysStream):
     name = "survey_b2c_prod_pt_nps"
@@ -662,3 +698,21 @@ class B2C_B2C_PROD_PT_NPS(SurveysStream):
         th.Property(clean("Qual é o motivo da sua pontuação?"), th.StringType),
         th.Property(clean("Ajude-nos a tornar sua experiência melhor! Você é um profissional ou consumidor?"), th.StringType),
     ).to_dict()
+
+    def post_process(self, row: dict, context: dict | None = None) -> dict | None:
+        row_processed = {}
+
+        row_processed["Number"] = row.get("Number")
+        row_processed["User"] = row.get("User")
+        row_processed["Date Submitted"] = row.get("Date Submitted")
+        row_processed["Country"] = row.get("Country")
+        row_processed["Source URL"] = row.get("Source URL")
+        row_processed["Device"] = row.get("Device")
+        row_processed["Browser"] = row.get("Browser")
+        row_processed["OS"] = row.get("OS")
+        row_processed["Hotjar User ID"] = row.get("Hotjar User ID")
+        row_processed[clean("Qual a probabilidade de você nos recomendar a um amigo ou colega?")] = row.get(clean("Qual a probabilidade de você nos recomendar a um amigo ou colega?"))
+        row_processed[clean("Qual é o motivo da sua pontuação?")] = row.get(clean("Qual é o motivo da sua pontuação?"))
+        row_processed[clean("Ajude-nos a tornar sua experiência melhor! Você é um profissional ou consumidor?")] = row.get(clean("Ajude-nos a tornar sua experiência melhor! Você é um profissional ou consumidor?"))
+
+        return row_processed
