@@ -324,7 +324,7 @@ class B2CProdFR(SurveysStream):
         th.Property("Browser", th.StringType),
         th.Property("OS", th.StringType),
         th.Property("Hotjar User ID", th.StringType),
-        th.Property(clean("Quelle est la probabilité que vous nous recommandiez à un ami ou à un collègue ?"), th.StringType),
+        th.Property(clean("Appréciez-vous notre nouveau site internet et ses services ?"), th.NumberType),
         th.Property(clean("Quelle est la raison de votre score ?"), th.StringType),
         th.Property(clean("Aidez-nous à améliorer votre expérience ! Etes-vous un professionnel ou un particulier ?"), th.StringType),
     ).to_dict()
