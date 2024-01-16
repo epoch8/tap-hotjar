@@ -18,7 +18,19 @@ plugins:
     - name: password
       kind: password
     select:
-    - "survey_b2c_prod_tr_nps.*"
+    # - "survey_b2c_prod_tr_nps.*"
+    - "survey_b2b_tr.*"
+    - "survey_b2b_us.*"
+    - "survey_b2b_central_america.*"
+    - "survey_b2b_mex.*"
+    - "survey_b2b_iberica.*"
+    - "survey_b2b_france_export.*"
+    - "survey_b2b_france.*"
+    - "survey_b2b_german_export.*"
+    - "survey_b2b_brasil.*"
+    - "survey_b2b_russia.*"
+    - "survey_b2b_italy.*"
+    - "survey_b2b_german.*"
   loaders:
   - name: target-jsonl
     variant: andyh1203
