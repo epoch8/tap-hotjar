@@ -718,7 +718,7 @@ class B2C_PROD_TR_NPS(SurveysStream):
         th.Property("Browser", th.StringType),
         th.Property("OS", th.StringType),
         th.Property("Hotjar User ID", th.StringType),
-        th.Property(clean("How likely are you to recommend us to a friend or colleague?"), th.IntegerType),
-        th.Property(clean("What's the reason for your score?"), th.StringType),
-        th.Property(clean("Help us make your experience better! Are you professional or consumer?"), th.StringType),
+        th.Property(clean("Bizi bir arkadaşınıza veya meslektaşınıza tavsiye eder misiniz?"), th.IntegerType),
+        th.Property(clean("Cevabınızın nedeni nedir?"), th.StringType),
+        th.Property(clean("Deneyiminizi daha iyi hale getirmemize yardımcı olun! Satıcı mısınız yoksa son kullanıcı mısınız?"), th.StringType),
     ).to_dict()

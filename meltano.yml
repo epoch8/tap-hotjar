@@ -18,7 +18,7 @@ plugins:
     - name: password
       kind: password
     select:
-      - "survey_b2c_prod_fr.*"
+    - "survey_b2c_prod_tr_nps.*"
   loaders:
   - name: target-jsonl
     variant: andyh1203
