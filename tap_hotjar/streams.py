@@ -56,17 +56,7 @@ class SurveysStream(HotJarStream):
             for zipinfo in thezip.infolist():
                 with thezip.open(zipinfo) as thefile:
                     csv = io.StringIO(thefile.read().decode("utf-8"))
-        df = pd.read_csv(csv)
-
-        if 'User ID' in df.columns:
-            df['User ID'] = df['User ID'].apply(lambda x: str(x).split('.')[0] if str(x).split('.')[0].isdigit() else str(x))
-
-        if 'ICMCustomerID' in df.columns:
-            df['ICMCustomerID'] = df['ICMCustomerID'].apply(lambda x: str(x).split('.')[0] if str(x).split('.')[0].isdigit() else str(x))
-
-        if 'ICMUserID' in df.columns:
-            df['ICMUserID'] = df['ICMUserID'].apply(lambda x: str(x).split('.')[0] if str(x).split('.')[0].isdigit() else str(x))
-
+        df = pd.read_csv(csv, dtype=object)
         unicode_mappings = {column: clean(column) for column in df.columns}
         df = df.rename(columns=unicode_mappings)
         data_str = df.to_json(None, orient='records')
