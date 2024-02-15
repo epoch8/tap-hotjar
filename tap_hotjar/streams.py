@@ -758,3 +758,98 @@ class B2C_PROD_TR_NPS(SurveysStream):
         th.Property(clean("Cevabınızın nedeni nedir?"), th.StringType),
         th.Property(clean("Deneyiminizi daha iyi hale getirmemize yardımcı olun! Satıcı mısınız yoksa son kullanıcı mısınız?"), th.StringType),
     ).to_dict()
+
+
+class Shop_NPS_IT(SurveysStream):
+    name = "survey_shop_nps_it"
+    site_id = "3387435"
+    survey_id = "923534"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+        th.Property(clean("Quanto è probabile che tu ci raccomandi a un amico o a un collega?"), th.NumberType),
+        th.Property(clean("Qual è il motivo della tua risposta ?"), th.StringType),
+    ).to_dict()
+
+
+class Shop_NPS_ES(SurveysStream):
+    name = "survey_shop_nps_es"
+    site_id = "3387435"
+    survey_id = "923507"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+        th.Property(clean("¿Qué probabilidad hay que nos recomiendes a un amigo?"), th.NumberType),
+        th.Property(clean("¿Cuál es la razón de tu respuesta?"), th.StringType),
+    ).to_dict()
+
+
+class Ride_NPS_IT(SurveysStream):
+    name = "survey_ride_nps_it"
+    site_id = "3387423"
+    survey_id = "965898"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+        th.Property(clean("Quanto è probabile che tu ci raccomandi a un amico o a un collega?"), th.NumberType),
+        th.Property(clean("Qual è il motivo della tua risposta ?"), th.StringType),
+    ).to_dict()
+
+
+class Ride_NPS_ES(SurveysStream):
+    name = "survey_ride_nps_es"
+    site_id = "3387423"
+    survey_id = "906684"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+        th.Property(clean("¿Qué probabilidad hay que nos recomiendes a un amigo?"), th.NumberType),
+        th.Property(clean("¿Cuál es la razón de tu respuesta?"), th.StringType),
+    ).to_dict()
+
+
+class Rent_NPS_EN(SurveysStream):
+    name = "survey_rent_nps_en"
+    site_id = "3387427"
+    survey_id = "896529"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+        th.Property(clean("How likely are you to recommend us to a friend or colleague?"), th.NumberType),
+        th.Property(clean("What's the reason for your score?"), th.StringType),
+    ).to_dict()

@@ -30,7 +30,12 @@ plugins:
     # - "survey_b2b_brasil.*"
     # - "survey_b2b_russia.*"
     # - "survey_b2b_italy.*"
-    - "survey_b2b_german.*"
+    # - "survey_b2b_german.*"
+    - "survey_shop_nps_it.*"
+    - "survey_shop_nps_es.*"
+    - "survey_ride_nps_it.*"
+    - "survey_ride_nps_es.*"
+    - "survey_rent_nps_en.*"
   loaders:
   - name: target-jsonl
     variant: andyh1203
