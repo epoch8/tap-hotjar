@@ -18,7 +18,7 @@ class HotJarApiError(Exception):
 
 
 def clean(text: str) -> str:
-    return unidecode(text).strip()
+    return unidecode(text.replace(f'\n', '')).strip()
 
 
 class SurveysStream(HotJarStream):
@@ -756,7 +756,7 @@ class B2C_PROD_TR_NPS(SurveysStream):
         th.Property("Hotjar User ID", th.StringType),
         th.Property(clean("Bizi bir arkadaşınıza veya meslektaşınıza tavsiye eder misiniz?"), th.NumberType),
         th.Property(clean("Cevabınızın nedeni nedir?"), th.StringType),
-        th.Property(clean("Deneyiminizi daha iyi hale getirmemize yardımcı olun! Satıcı mısınız yoksa son kullanıcı mısınız?"), th.StringType),
+        th.Property(clean(f"Deneyiminizi daha iyi hale getirmemize yardımcı olun! \nSatıcı mısınız yoksa son kullanıcı mısınız?"), th.StringType),
     ).to_dict()
 
 
