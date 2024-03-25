@@ -46,6 +46,10 @@ from tap_hotjar.streams import (
     Ride_NPS_IT,
     Ride_NPS_ES,
     Rent_NPS_EN,
+    B2C_PROD_FR_MA,
+    B2C_PROD_FR_TN,
+    B2C_PROD_ES_NI,
+    B2C_PROD_ES_MX,
 )
 # TODO: Compile a list of custom stream types here
 #       OR rewrite discover_streams() below with your custom logic.
@@ -89,6 +93,10 @@ STREAM_TYPES = [
     Ride_NPS_IT,
     Ride_NPS_ES,
     Rent_NPS_EN,
+    B2C_PROD_FR_MA,
+    B2C_PROD_FR_TN,
+    B2C_PROD_ES_NI,
+    B2C_PROD_ES_MX
 ]
 
 

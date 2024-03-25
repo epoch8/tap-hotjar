@@ -31,11 +31,15 @@ plugins:
     # - "survey_b2b_russia.*"
     # - "survey_b2b_italy.*"
     # - "survey_b2b_german.*"
-    - "survey_shop_nps_it.*"
-    - "survey_shop_nps_es.*"
-    - "survey_ride_nps_it.*"
-    - "survey_ride_nps_es.*"
-    - "survey_rent_nps_en.*"
+    # - "survey_shop_nps_it.*"
+    # - "survey_shop_nps_es.*"
+    # - "survey_ride_nps_it.*"
+    # - "survey_ride_nps_es.*"
+    # - "survey_rent_nps_en.*"
+    - "survey_b2c_prod_fr_ma.*"
+    - "survey_b2c_prod_fr_tn.*"
+    - "survey_b2c_prod_es_ni.*"
+    - "survey_b2c_prod_es_mx.*"
   loaders:
   - name: target-jsonl
     variant: andyh1203
