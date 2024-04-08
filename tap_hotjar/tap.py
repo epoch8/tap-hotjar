@@ -50,6 +50,8 @@ from tap_hotjar.streams import (
     B2C_PROD_FR_TN,
     B2C_PROD_ES_NI,
     B2C_PROD_ES_MX,
+    B2C_PROD_PT_BR_NPS,
+    B2C_PROD_PT_UK_UA
 )
 # TODO: Compile a list of custom stream types here
 #       OR rewrite discover_streams() below with your custom logic.
@@ -96,7 +98,9 @@ STREAM_TYPES = [
     B2C_PROD_FR_MA,
     B2C_PROD_FR_TN,
     B2C_PROD_ES_NI,
-    B2C_PROD_ES_MX
+    B2C_PROD_ES_MX,
+    B2C_PROD_PT_BR_NPS,
+    B2C_PROD_PT_UK_UA,
 ]
 
 
