@@ -933,3 +933,43 @@ class B2C_PROD_ES_MX(SurveysStream):
         th.Property(clean("¿Cuál es la razón de tu respuesta?"), th.StringType),
         th.Property(clean("¡Ayúdanos a mejorar tu experiencia! ¿Eres profesional o particular?"), th.StringType),
     ).to_dict()
+
+
+class B2C_PROD_PT_BR_NPS(SurveysStream):
+    name = "survey_b2c_prod_pt_br_nps"
+    site_id = "3356229"
+    survey_id = "987494"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+        th.Property(clean("Qual a probabilidade de você nos recomendar a um amigo ou colega?"), th.NumberType),
+        th.Property(clean("Qual é o motivo da sua pontuação?"), th.StringType),
+        th.Property(clean("Ajude-nos a tornar sua experiência melhor! Você é um profissional ou consumidor?"), th.StringType),
+    ).to_dict()
+
+
+class B2C_PROD_PT_UK_UA(SurveysStream):
+    name = "survey_b2c_prod_uk_ua"
+    site_id = "3356229"
+    survey_id = "987491"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+        th.Property(clean("Наскільки ймовірно, що порадите нас друзям чи колегам?"), th.NumberType),
+        th.Property(clean("На чому грунтується Ваша оцінка?"), th.StringType),
+        th.Property(clean("Допоможіть нам стати кращими для Вас! Ви спеціаліст чи приватна особа?"), th.StringType),
+    ).to_dict()
