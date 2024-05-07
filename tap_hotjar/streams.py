@@ -973,3 +973,23 @@ class B2C_PROD_PT_UK_UA(SurveysStream):
         th.Property(clean("На чому грунтується Ваша оцінка?"), th.StringType),
         th.Property(clean("Допоможіть нам стати кращими для Вас! Ви спеціаліст чи приватна особа?"), th.StringType),
     ).to_dict()
+
+
+class B2C_PROD_ES_SV(SurveysStream):
+    name = "survey_b2c_prod_es_sv"
+    site_id = "3356229"
+    survey_id = "1016406"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+        th.Property(clean("¿Qué probabilidad hay que nos recomiendes a un amigo?"), th.NumberType),
+        th.Property(clean("¿Cuál es la razón de tu respuesta?"), th.StringType),
+        th.Property(clean("¡Ayúdanos a mejorar tu experiencia! ¿Eres profesional o particular?"), th.StringType),
+    ).to_dict()
