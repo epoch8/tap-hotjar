@@ -179,7 +179,7 @@ class B2BIbericaStream(SurveysStream):
         th.Property("User ID", th.StringType),
         th.Property("ICMCustomerID", th.StringType),
         th.Property("ICMUserID", th.StringType),
-        th.Property(clean("¿Qué probabilidad hay que recomiende este portal a alguien como usted?"), th.NumberType),
+        th.Property(clean("¿Qué probabilidad hay que recomiende Motul a alguien como usted?"), th.NumberType),
         th.Property(clean("¿Cuál es la razón de su puntuación?"), th.StringType),
         th.Property(clean("¿Qué debemos hacer para que le sorprenda?"), th.StringType),
     ).to_dict()
