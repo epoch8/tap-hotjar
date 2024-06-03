@@ -1093,3 +1093,22 @@ class B2C_PROD_ES_HN(SurveysStream):
         th.Property(clean("¿Cuál es la razón de tu respuesta?"), th.StringType),
         th.Property(clean("¡Ayúdanos a mejorar tu experiencia! ¿Eres profesional o particular?"), th.StringType),
     ).to_dict()
+
+
+class SHOP_NPS_DE(SurveysStream):
+    name = "survey_shop_nps_de"
+    site_id = "3901562"
+    survey_id = "1014897"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+        th.Property(clean("Warum möchtest du schon gehen?"), th.NumberType),
+        th.Property(clean("Was hat dich gestört?"), th.StringType),
+    ).to_dict()
