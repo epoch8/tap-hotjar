@@ -1109,6 +1109,6 @@ class SHOP_NPS_DE(SurveysStream):
         th.Property("Browser", th.StringType),
         th.Property("OS", th.StringType),
         th.Property("Hotjar User ID", th.StringType),
-        th.Property(clean("Warum möchtest du schon gehen?"), th.NumberType),
+        th.Property(clean("Warum möchtest du schon gehen?"), th.StringType),
         th.Property(clean("Was hat dich gestört?"), th.StringType),
     ).to_dict()
