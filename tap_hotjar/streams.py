@@ -1112,3 +1112,108 @@ class SHOP_NPS_DE(SurveysStream):
         th.Property(clean("Warum möchtest du schon gehen?"), th.StringType),
         th.Property(clean("Was hat dich gestört?"), th.StringType),
     ).to_dict()
+
+
+class B2C_PROD_EN_DK(SurveysStream):
+    name = "survey_b2c_prod_en_dk"
+    site_id = "3356229"
+    survey_id = "1021393"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+
+        th.Property(clean("How likely are you to recommend us to a friend or colleague?"), th.NumberType),
+        th.Property(clean("What's the reason for your score?"), th.StringType),
+        th.Property(clean("Help us make your experience better! Are you professional or consumer?"), th.StringType),
+    ).to_dict()
+
+
+class B2C_PROD_EN_LV(SurveysStream):
+    name = "survey_b2c_prod_en_lv"
+    site_id = "3356229"
+    survey_id = "1021387"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+
+        th.Property(clean("How likely are you to recommend us to a friend or colleague?"), th.NumberType),
+        th.Property(clean("What's the reason for your score?"), th.StringType),
+        th.Property(clean("Help us make your experience better! Are you professional or consumer?"), th.StringType),
+    ).to_dict()
+
+
+class B2C_PROD_EN_SE(SurveysStream):
+    name = "survey_b2c_prod_en_se"
+    site_id = "3356229"
+    survey_id = "1021386"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+
+        th.Property(clean("How likely are you to recommend us to a friend or colleague?"), th.NumberType),
+        th.Property(clean("What's the reason for your score?"), th.StringType),
+        th.Property(clean("Help us make your experience better! Are you professional or consumer?"), th.StringType),
+    ).to_dict()
+
+
+class B2C_PROD_VI_VN(SurveysStream):
+    name = "survey_b2c_prod_vi_vn"
+    site_id = "3356229"
+    survey_id = "992207"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+
+        th.Property(clean("Khả năng bạn giới thiệu chúng tôi với bạn bè hoặc đồng nghiệp là bao nhiêu?"), th.NumberType),
+        th.Property(clean("Lý do cho điểm số của bạn là gì?"), th.StringType),
+        th.Property(clean("Hãy giúp chúng tôi làm cho trải nghiệm của bạn tốt hơn! Bạn là người chuyên nghiệp hay người tiêu dùng?"), th.StringType),
+    ).to_dict()
+
+
+class B2C_PROD_ES_CO(SurveysStream):
+    name = "survey_b2c_prod_es_co"
+    site_id = "3356229"
+    survey_id = "987505"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+
+        th.Property(clean("¿Qué probabilidad hay que nos recomiendes a un amigo?"), th.NumberType),
+        th.Property(clean("¿Cuál es la razón de tu respuesta?"), th.StringType),
+        th.Property(clean("¡Ayúdanos a mejorar tu experiencia! ¿Eres profesional o particular?"), th.StringType),
+    ).to_dict()
