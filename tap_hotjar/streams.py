@@ -64,9 +64,6 @@ class SurveysStream(HotJarStream):
         yield from data
 
     def post_process(self, row: dict, context: Optional[dict] = None) -> Optional[dict]:
-        for key in row:
-            if isinstance(row[key], str):
-                row[key] = clean(row[key])
         return row
 
 
@@ -758,6 +755,13 @@ class B2C_PROD_TR_NPS(SurveysStream):
         th.Property(clean("Cevabınızın nedeni nedir?"), th.StringType),
         th.Property(clean(f"Deneyiminizi daha iyi hale getirmemize yardımcı olun! \nSatıcı mısınız yoksa son kullanıcı mısınız?"), th.StringType),
     ).to_dict()
+
+    # def post_process(self, row: dict, context: Optional[dict] = None) -> Optional[dict]:
+    #     '''depricated post_process transliteration'''
+    #     for key in row:
+    #         if isinstance(row[key], str):
+    #             row[key] = clean(row[key])
+    #     return row
 
 
 class Shop_NPS_IT(SurveysStream):
