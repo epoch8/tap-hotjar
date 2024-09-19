@@ -76,6 +76,9 @@ from tap_hotjar.streams import (
     B2C_PROD_IT_CH_NPS,
     B2C_PROD_FR_CH_NPS,
     B2C_PROD_DE_CH_NPS,
+    B2C_PROD_AUSTRALIAN_EN_AU,
+    B2C_PROD_EN_LT,
+    B2C_PROD_EN_NO,
 )
 	 
 # TODO: Compile a list of custom stream types here
@@ -150,6 +153,9 @@ STREAM_TYPES = [
     B2C_PROD_IT_CH_NPS,
     B2C_PROD_FR_CH_NPS,
     B2C_PROD_DE_CH_NPS,
+    B2C_PROD_AUSTRALIAN_EN_AU,
+    B2C_PROD_EN_LT,
+    B2C_PROD_EN_NO,
 ]
 
 
