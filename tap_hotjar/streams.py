@@ -2737,3 +2737,113 @@ class B2C_PROD_EN_AE(SurveysStream):
         th.Property(clean("What's the reason for your score?"), th.StringType),
         th.Property(clean("Help us make your experience better! Are you professional or consumer?"), th.StringType),
     ).to_dict()
+    
+# Motul B2C PROD en-SK Slovakia NPS
+# https://insights.hotjar.com/sites/3356229/surveys/overview/1592142
+class B2CProd_EN_SK(SurveysStream):
+    name = "survey_b2c_prod_en_sk"
+    site_id = "3356229"
+    survey_id = "1592142"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+
+        th.Property(clean("How likely are you to recommend us to a friend or colleague?"), th.NumberType),
+        th.Property(clean("What's the reason for your score?"), th.StringType),
+        th.Property(clean("Help us make your experience better! Are you professional or consumer?"), th.StringType),
+    ).to_dict()
+    
+# Motul B2C PROD en-CZ Czech Republic NPS
+# https://insights.hotjar.com/sites/3356229/surveys/overview/1592138
+class B2CProd_EN_CZ(SurveysStream):
+    name = "survey_b2c_prod_en_cz"
+    site_id = "3356229"
+    survey_id = "1592138"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+
+        th.Property(clean("How likely are you to recommend us to a friend or colleague?"), th.NumberType),
+        th.Property(clean("What's the reason for your score?"), th.StringType),
+        th.Property(clean("Help us make your experience better! Are you professional or consumer?"), th.StringType),
+    ).to_dict()
+    
+# Motul B2C PROD en-AM Armenia NPS
+# https://insights.hotjar.com/sites/3356229/surveys/overview/1591104
+class B2CProd_EN_AM(SurveysStream):
+    name = "survey_b2c_prod_en_am"
+    site_id = "3356229"
+    survey_id = "1591104"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+
+        th.Property(clean("How likely are you to recommend us to a friend or colleague?"), th.NumberType),
+        th.Property(clean("What's the reason for your score?"), th.StringType),
+        th.Property(clean("Help us make your experience better! Are you professional or consumer?"), th.StringType),
+    ).to_dict()
+    
+# Motul B2C PROD en-AZ Azerbaijan NPS
+# https://insights.hotjar.com/sites/3356229/surveys/overview/1591098
+class B2CProd_EN_AZ(SurveysStream):
+    name = "survey_b2c_prod_en_az"
+    site_id = "3356229"
+    survey_id = "1591098"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+
+        th.Property(clean("How likely are you to recommend us to a friend or colleague?"), th.NumberType),
+        th.Property(clean("What's the reason for your score?"), th.StringType),
+        th.Property(clean("Help us make your experience better! Are you professional or consumer?"), th.StringType),
+    ).to_dict()
+    
+# Motul B2C PROD en-GE Georgia NPS
+# https://insights.hotjar.com/sites/3356229/surveys/overview/1591095
+class B2CProd_EN_GE(SurveysStream):
+    name = "survey_b2c_prod_en_ge"
+    site_id = "3356229"
+    survey_id = "1591095"
+    schema = th.PropertiesList(
+        th.Property("Number", th.IntegerType),
+        th.Property("User", th.StringType),
+        th.Property("Date Submitted", th.StringType),
+        th.Property("Country", th.StringType),
+        th.Property("Source URL", th.StringType),
+        th.Property("Device", th.StringType),
+        th.Property("Browser", th.StringType),
+        th.Property("OS", th.StringType),
+        th.Property("Hotjar User ID", th.StringType),
+
+        th.Property(clean("How likely are you to recommend us to a friend or colleague?"), th.NumberType),
+        th.Property(clean("What's the reason for your score?"), th.StringType),
+        th.Property(clean("Help us make your experience better! Are you professional or consumer?"), th.StringType),
+    ).to_dict()
